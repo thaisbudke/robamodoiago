@@ -18,7 +18,7 @@ class esportesController extends Controller
     public function index()
     {
         $esportes = esportes::paginate(6);
-        return view('esportes.list',['esportes' => $esportes]);    }
+        return view('artigo.list',['esportes' => $esportes]);    }
 
     /**
      * Show the form for creating a new resource.
@@ -28,7 +28,7 @@ class esportesController extends Controller
     public function create()
     {
         $eventos = eventos::all();
-        return view('esportes.create',['eventos' => $eventos]);
+        return view('artigo.create',['eventos' => $eventos]);
     }
 
     /**
@@ -63,7 +63,7 @@ class esportesController extends Controller
         $validador = Validator::make($request->all(), $regras, $messages);
         //executa as validações
         if ($validador->fails()) {
-            return redirect('esportes/create')
+            return redirect('artigo/create')
             ->withErrors($validador)
             ->withInput($request->all);
         }
@@ -76,7 +76,7 @@ class esportesController extends Controller
         $obj_esportes->resultado = $request['resultado'];
         $obj_esportes->evento_id = $request['evento_id'];        
         $obj_esportes->save();
-        return redirect('/esportes')->with('success', 'Esporte criado com sucesso!!');
+        return redirect('/artigo')->with('success', 'Esporte criado com sucesso!!');
     }
 
     /**
@@ -88,7 +88,7 @@ class esportesController extends Controller
     public function show($id)
     {
         $esportes = esportes::where('id',$id)->with('atletas')->get()->first();
-        return view('esportes.show',['esportes' => $esportes]);
+        return view('artigo.show',['esportes' => $esportes]);
     }
 
     /**
@@ -101,7 +101,7 @@ class esportesController extends Controller
     {
     $eventos = eventos::all();
     $obj_esportes = esportes::find($id);
-    return view('esportes.edit',['esportes' => $obj_esportes],['eventos' => $eventos]);   
+    return view('artigo.edit',['esportes' => $obj_esportes],['eventos' => $eventos]);   
     }
 
     /**
@@ -156,7 +156,7 @@ class esportesController extends Controller
     public function delete($id)
     {
         $obj_esportes = esportes::find($id);
-        return view('esportes.delete',['esportes' => $obj_esportes]);    
+        return view('artigo.delete',['esportes' => $obj_esportes]);    
     }
 
     /**
@@ -169,6 +169,6 @@ class esportesController extends Controller
     {
         $obj_esportes = esportes::findOrFail($id);
         $obj_esportes->delete($id);
-        return redirect('/esportes')->with('sucess','Esporte excluído com Sucesso!!');
+        return redirect('/artigo')->with('sucess','Esporte excluído com Sucesso!!');
     }
 }

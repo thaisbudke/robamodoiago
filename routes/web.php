@@ -33,12 +33,12 @@ Route::delete('/eventos/{id}', 'eventosController@destroy');
 
 
 
-Route::get('/esportes/create', 'esportesController@create');
-Route::post('/esportes','esportesController@store');
-Route::get('/esportes/{id}/edit', 'esportesController@edit');
-Route::put('/esportes/{id}', 'esportesController@update');
-Route::get('/esportes/{id}/delete', 'esportesController@delete');
-Route::delete('/esportes/{id}', 'esportesController@destroy');
+Route::get('/artigo/create', 'esportesController@create');
+Route::post('/artigo','esportesController@store');
+Route::get('/artigo/{id}/edit', 'esportesController@edit');
+Route::put('/artigo/{id}', 'esportesController@update');
+Route::get('/artigo/{id}/delete', 'esportesController@delete');
+Route::delete('/artigo/{id}', 'esportesController@destroy');
 
 
 
@@ -52,12 +52,8 @@ Route::delete('/atletas/{id}', 'atletasController@destroy');
 
 });
 
-Route::get('/eventos', 'eventosController@index');
-Route::get('/eventos/{id}', 'eventosController@show');
-
-
-Route::get('/esportes', 'esportesController@index');
-Route::get('/esportes/{id}', 'esportesController@show');
+Route::get('/artigo', 'esportesController@index');
+Route::get('/artigo/{id}', 'esportesController@show');
 
 
 Route::get('/atletas', 'atletasController@index');

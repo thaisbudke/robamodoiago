@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\alunos;
 
 class alunosTableSeeder extends Seeder
 {
@@ -13,8 +14,7 @@ class alunosTableSeeder extends Seeder
     {
         alunos::create([
             'nome' => 'João',
-            'id_esporte' => '2',
-            'genero' => 'M',            
+            'email' => 'teste1@teste1',            
         ]);
     }
 }

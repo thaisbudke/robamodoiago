@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddAlunosTable extends Migration
+class AddArtigoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class AddAlunosTable extends Migration
      */
     public function up()
     {
-        Schema::create('alunos', function (Blueprint $table) {
+        Schema::create('artigo', function (Blueprint $table) {
             $table->increments('id');           //código identificador
-            $table->string('nome');            //título da atividade
-            $table->string('id_esporte');      //descrição da atividade
-            $table->string('genero');      //genero do esporte
+            $table->string('titulo');
+            $table->string('descricao');
+            $table->dateTime('data');
+            $table->string('orientador');
+            $table->string('banca1');
+            $table->string('banca2');
+            $table->integer('resultado');
             $table->timestamps();
 
         });
@@ -30,6 +34,8 @@ class AddAlunosTable extends Migration
      */
     public function down()
     {
-        //
+        Schema::table('artigo', function (Blueprint $table) {
+            //
+        });
     }
 }
