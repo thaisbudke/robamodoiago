@@ -1,0 +1,1 @@
+<?php /**PATH /home/linuxifrs/Área de Trabalho/Trabalho_Final_Laravel/resources/views/include/header.blade.php ENDPATH**/ ?>
